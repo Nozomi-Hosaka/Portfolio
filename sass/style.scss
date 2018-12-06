@@ -1,0 +1,53 @@
+.jump-game-canvas{
+  width: 100%;
+  border: 1px dashed #000000;
+  margin: 0;
+  padding: 0;
+}
+a.primary {
+  color: #ffffff;
+  background-color: #0083ff;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+a.none {
+  color: #000000;
+  background-color: #c9c9c9;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+a.disabled{
+  pointer-events: none;
+}
+/*
+.running-game-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  border: 1px dashed #000000;
+  z-index: 1;
+}
+.running-game-start-dialog {
+  position: absolute;
+  width: 100%;
+  height: 55px;
+  top: 45px;
+  z-index: 100;
+}
+.running-game-start-button {
+  top: 50px;
+  font-size: 20px;
+}
+.on-mouse {
+  cursor: pointer;
+}
+.text-center {
+  text-align: center;
+}
+.visabled{
+    display: none;
+}
+*/

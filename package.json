@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "animejs": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2",
+    "moment": "^2.22.2",
+    "webpack": "^4.26.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack --mode=development"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
