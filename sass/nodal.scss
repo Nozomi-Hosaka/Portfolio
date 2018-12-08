@@ -15,8 +15,8 @@
   }
 }
 div.nodal {
-  position: absolute;
-  top: 100px;
+  position: fixed;
+  top: 0px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -39,4 +39,16 @@ div.nodal.show {
 }
 .shadow {
   background-color: rgba($color: #636363, $alpha: 0.7);
+}
+.nodal-title {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: solid #000000 1px;
+  margin-bottom: 10px;
+}
+.nodal-button-container{
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  margin: 10px;
 }

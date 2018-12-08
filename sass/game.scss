@@ -1,0 +1,19 @@
+.jump-game-container {
+  position: relative;
+  top: -500px;
+}
+.jump-game-canvas {
+  /*position: absolute;*/
+  width: 100%;
+  border: 1px dashed #000000;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+.jump-game-start-dialog {
+  position: relative;
+  width: 100%;
+  height: 55px;
+  top: 10px;
+  z-index: 100;
+}

@@ -16,49 +16,32 @@ onload = function() {
   jumpGame.init();
   // イベント作成
   jumpGameStartButton.addEventListener("click", function() {
-    this.classList.remove("primary");
-    this.classList.add("disabled");
-    this.classList.add("none");
-    jumpGameJampButton.classList.remove("none");
-    jumpGameJampButton.classList.remove("disabled");
-    jumpGameJampButton.classList.add("primary");
-    jumpGameRestartButton.classList.remove("none");
-    jumpGameRestartButton.classList.remove("disabled");
-    jumpGameRestartButton.classList.add("primary");
-    jumpGamePauseButton.classList.remove("none");
-    jumpGamePauseButton.classList.remove("disabled");
-    jumpGamePauseButton.classList.add("primary");
+    jumpGame.changeJumpGameButtonStatus(this, false);
+    jumpGame.changeJumpGameButtonStatus(jumpGameJampButton, true);
+    jumpGame.changeJumpGameButtonStatus(jumpGameRestartButton, true);
+    jumpGame.changeJumpGameButtonStatus(jumpGamePauseButton, true);
     jumpGame.start();
+    return false;
   });
   jumpGameRestartButton.addEventListener("click", function() {
-    jumpGameStartButton.classList.add("none");
-    jumpGameStartButton.classList.add("disabled");
-    jumpGameStartButton.classList.remove("primary");
-    jumpGameEndButton.classList.remove("none");
-    jumpGameEndButton.classList.remove("disabled");
-    jumpGameEndButton.classList.add("primary");
-    jumpGameJampButton.classList.remove("none");
-    jumpGameJampButton.classList.remove("disabled");
-    jumpGameJampButton.classList.add("primary");
-    jumpGamePauseButton.classList.remove("none");
-    jumpGamePauseButton.classList.remove("disabled");
-    jumpGamePauseButton.classList.add("primary");
+    jumpGame.changeJumpGameButtonStatus(jumpGameStartButton, false);
+    jumpGame.changeJumpGameButtonStatus(jumpGameEndButton, true);
+    jumpGame.changeJumpGameButtonStatus(jumpGameJampButton, true);
+    jumpGame.changeJumpGameButtonStatus(jumpGamePauseButton, true);
     jumpGame.restart();
+    return false;
   });
   jumpGameEndButton.addEventListener("click", function() {
-    jumpGameStartButton.classList.remove("none");
-    jumpGameStartButton.classList.remove("disabled");
-    jumpGameStartButton.classList.add("primary");
-    jumpGameJampButton.classList.remove("primary");
-    jumpGameJampButton.classList.add("disabled");
-    jumpGameJampButton.classList.add("none");
-    jumpGameRestartButton.classList.remove("primary");
-    jumpGameRestartButton.classList.add("disabled");
-    jumpGameRestartButton.classList.add("none");
+    jumpGame.changeJumpGameButtonStatus(jumpGameStartButton, true);
+    jumpGame.changeJumpGameButtonStatus(jumpGameJampButton, false);
+    jumpGame.changeJumpGameButtonStatus(jumpGameRestartButton, false);
+    jumpGame.changeJumpGameButtonStatus(jumpGamePauseButton, false);
     jumpGame.end();
+    return false;
   });
   jumpGameJampButton.addEventListener("mousedown", function() {
     jumpGame.ballJump();
+    return false;
   });
   jumpGamePauseButton.addEventListener("click", function() {
     if (jumpGame.isBallMove === true) {
@@ -67,10 +50,13 @@ onload = function() {
     if (jumpGame.isPause === false) {
       jumpGame.isPause = true;
       jumpGame.pause();
+      jumpGame.changeJumpGameButtonStatus(jumpGameJampButton, false);
     } else {
       jumpGame.isPause = false;
       jumpGame.obstacleMove();
+      jumpGame.changeJumpGameButtonStatus(jumpGameJampButton, true);
     }
+    return false;
   });
 };
 
@@ -144,10 +130,12 @@ class JumpGame {
     this.remove();
     this.ball.move(1, 0);
     this.obstacle.draw();
-    var me = this;
-    this.ballTimeId = setTimeout(function() {
-      me.ballMoveToDefaultPostion();
-    }, 1000 / this.fps);
+    this.ballTimeId = setTimeout(
+      function() {
+        this.ballMoveToDefaultPostion();
+      }.bind(this),
+      1000 / this.fps
+    );
     this.isBallMove = true;
     if (this.ball.centerX >= this.canvasWidth / 5 && this.ballTimeId) {
       clearTimeout(this.ballTimeId);
@@ -182,17 +170,16 @@ class JumpGame {
     }
     this.ball.move(0, ballY);
     this.obstacle.move(1, 0);
-    var me = this;
     this.isObstacleMove = true;
 
-    var randNum = Math.floor(Math.random()*(5000-1000)+1000);
+    var randNum = Math.floor(Math.random() * (5000 - 1000) + 1000);
     var baseDate = moment().subtract(randNum, "ms");
     if (
       moment(baseDate).isAfter(this.dateContainer) ||
       this.dateContainer == null
     ) {
-      var randNumW = Math.floor(Math.random()*(40-10)+10);
-      var randNumH = Math.floor(Math.random()*(40-10)+10);
+      var randNumW = Math.floor(Math.random() * (40 - 10) + 10);
+      var randNumH = Math.floor(Math.random() * (40 - 10) + 10);
       this.addObstacle.push(
         new Obstacle(
           this.jgConvas,
@@ -236,9 +223,12 @@ class JumpGame {
     }
     if (this.isPause == false) {
       this.obstacleTimeId.push(
-        setTimeout(function() {
-          me.obstacleMove();
-        }, 1000 / this.fps)
+        setTimeout(
+          function() {
+            this.obstacleMove();
+          }.bind(this),
+          1000 / this.fps
+        )
       );
     }
   }
@@ -259,6 +249,17 @@ class JumpGame {
   }
   remove() {
     this.jgConvas.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+  }
+  changeJumpGameButtonStatus(button, visible) {
+    if (visible) {
+      button.classList.remove("none");
+      button.classList.remove("disabled");
+      button.classList.add("primary");
+    } else {
+      button.classList.remove("primary");
+      button.classList.add("disabled");
+      button.classList.add("none");
+    }
   }
 }
 

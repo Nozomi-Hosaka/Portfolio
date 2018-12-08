@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/nodal.css" />
+    <link rel="stylesheet" href="css/game.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -17,17 +18,49 @@
   </head>
   <body>
     <main id="main">
-      <!-- Modal -->
-      <div id="nodal-site-dispriction" class="nodal" title="テストタイトル">
+      <!-- Nodal -->
+      <div
+        id="nodal-site-dispriction"
+        class="nodal"
+        title="このサイトの構成は？"
+        ok="OK"
+      >
+        <p>このサイトの構成は以下の通りの構成になっています。</p>
+        <p>使用言語</p>
+        <ul>
+          <li>Html5</li>
+          <li>JavaScript</li>
+          <li>CSS</li>
+        </ul>
+        <p>
+          <strong
+            >jQueryやReact/Angular/Vueなどのフレームワークは一切使用していません。</strong
+          >
+        </p>
+        <p><strong>Bootstrapは使用していません。</strong></p>
+        <p>使用プラグイン</p>
+        <ul>
+          <li>
+            anime.js
+            <a
+              href="http://animejs.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >http://animejs.com/</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        id="nodal-nozomi-hosaka-dispriction"
+        class="nodal"
+        title="テストタイトル"
+        ok="OK"
+      >
         テストメッセージ<br />test
       </div>
       <!-- Content -->
       <h1 id="title" class="title">Nozomi Hosaka<br /></h1>
-      <div class="sm msg position-right">
-        <a href="#" class="text" id="nodal-is-this-site" nodal
-          ><i class="fas fa-question-circle"></i>このサイトの構成は？</a
-        >
-      </div>
       <div id="jump-game-container" class="jump-game-container">
         <canvas
           id="jump-game-canvas"
@@ -36,20 +69,93 @@
           height="200"
         ></canvas>
         <div class="jump-game-start-dialog">
-          <a href="#" id="jump-game-start-button" class="primary">Start Game</a>
-          <a href="#" id="jump-game-jump-button" class="none disabled">Jump</a>
-          <a href="#" id="jump-game-pause-button" class="none disabled"
+          <a
+            href="#"
+            id="jump-game-start-button"
+            class="primary"
+            onclick="return false;"
+            >Start Game</a
+          >
+          <a
+            href="#"
+            id="jump-game-jump-button"
+            class="none disabled"
+            onclick="return false;"
+            >Jump</a
+          >
+          <a
+            href="#"
+            id="jump-game-pause-button"
+            class="none disabled"
+            onclick="return false;"
             >Pause</a
           >
-          <a href="#" id="jump-game-restart-button" class="none disabled"
+          <a
+            href="#"
+            id="jump-game-restart-button"
+            class="none disabled"
+            onclick="return false;"
             >Restart Game</a
           >
-          <a href="#" id="jump-game-end-button" class="primary">End Game</a>
+          <a
+            href="#"
+            id="jump-game-end-button"
+            class="primary"
+            onclick="return false;"
+            >End Game</a
+          >
+        </div>
+        <div class="text-sm">
+          <p>
+            <i class="fas fa-arrow-up"></i
+            >簡単なJump&Runゲームです。JavaScriptのみで動作しています。
+          </p>
         </div>
       </div>
-      <div id="main-container" class="main-container"><h2>基本情報</h2></div>
-      <br />
-      <br />
+      <!-- Main Container -->
+      <div id="main-container" class="main-container">
+        <!-- Index -->
+        <div class="index">
+          <ul>
+            <p class="text-bg">目次</p>
+            <li><a href="#introduction">はじめに</a></li>
+            <li><a href="#profile">基本情報</a></li>
+          </ul>
+        </div>
+        <!-- Introduction -->
+        <h2>
+          <a id="introduction" href="#main-container" class="link-mark">#</a
+          >はじめに
+        </h2>
+        <h3>
+          <div class="msg">
+            <a
+              href="#"
+              class="text danger"
+              id="nodal-is-this-site"
+              nodal
+              onclick="return false;"
+              ><i class="fas fa-question-circle"></i>このサイトの構成は？</a
+            >
+          </div>
+        </h3>
+        <!-- Profile -->
+        <h2>
+          <a id="profile" href="#main-container" class="link-mark">#</a>基本情報
+        </h2>
+        <div id="profile-button-container">
+          <div class="f-left">
+            <img src="dist/Z250.jpg" alt="Z250" class="radius-300" />
+          </div>
+          <div id="profile-container" class="profile-container">
+            <ul>
+              <li>保坂　望(Nozomi Hosaka)</li>
+              <li>26歳</li>
+              <li>Male</li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </main>
     <script src="./js/app.js"></script>
