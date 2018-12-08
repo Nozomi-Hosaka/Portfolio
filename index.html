@@ -15,6 +15,10 @@
       integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Raleway:500,400,300"
+    />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -31,6 +35,40 @@
     </script>
   </head>
   <body>
+    <!-- Carousel -->
+    <div class="carousel">
+      <div class="carousel-wrap center shadow-wrap">
+        <div id="carousel-msg" class="carousel-msg text-center">
+          <h1 class="title">Nozomi Hosaka</h1>
+          <!-- Index -->
+          <div class="index">
+            <ul>
+              <li>
+                <a href="#introduction" id="introduction-link"
+                  ><i class="fas fa-exclamation-circle"></i>Introduction</a
+                >
+              </li>
+              <li>
+                <a href="#profile" id="profile-link"
+                  ><i class="fas fa-user"></i>Profile</a
+                >
+              </li>
+              <li>
+                <a href="#technic" id="technic-link">
+                  <i class="fas fa-code"></i>Technic
+                </a>
+              </li>
+              <li>
+                <a href="#contact" id="contact-link"
+                  ><i class="fas fa-envelope"></i>Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <main id="main">
       <!-- Nodal -->
       <div
@@ -39,43 +77,42 @@
         title="このサイトの構成は？"
         ok="OK"
       >
-        <p>このサイトの構成は以下の通りの構成になっています。</p>
-        <p>使用言語</p>
-        <ul>
-          <li>Html5</li>
-          <li>JavaScript</li>
-          <li>CSS</li>
-        </ul>
-        <p>
-          <strong
-            >jQueryやReact/Angular/Vueなどのフレームワークは一切使用していません。</strong
-          >
-        </p>
-        <p><strong>Bootstrapは使用していません。</strong></p>
-        <p>使用プラグイン</p>
-        <ul>
-          <li>
-            anime.js
-            <a
-              href="http://animejs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >http://animejs.com/</a
+        <div class="text-center">
+          <p class="text-bg bold">
+            このサイトの構成は以下の通りの構成になっています。
+          </p>
+          <p>
+            <img
+              src="./dist/html5_css3_js.png"
+              alt="Html5"
+              style="width: 50%;"
+            />
+          </p>
+          <br /><br />
+          <p><strong>jQuery/React/Angular/Vue/Bootstrapなど、</strong></p>
+          <p>
+            <strong
+              >メジャーなフレームワークは一切使用せず作成されています。</strong
             >
-          </li>
-        </ul>
-      </div>
-      <div
-        id="nodal-nozomi-hosaka-dispriction"
-        class="nodal"
-        title="テストタイトル"
-        ok="OK"
-      >
-        テストメッセージ<br />test
+          </p>
+          <br /><br />
+          <p class="text-bg bold">独自プラグイン</p>
+          <p>また、このモーダルは外部プラグインを使用せず、</p>
+          <p>フルスクラッチで作成されています。</p>
+          <p>
+            使用ファイル [
+            <a href="./assets/js/nodal.js" target="_blank">nodal.js</a> ]
+          </p>
+          <br /><br />
+          <p class="text-bg bold">外部プラグイン</p>
+          anime.js [
+          <a href="http://animejs.com/" target="_blank">http://animejs.com/</a>
+          ]
+        </div>
       </div>
       <!-- Content -->
-      <h1 id="title" class="title">Nozomi Hosaka<br /></h1>
-      <div id="jump-game-container" class="jump-game-container">
+      <div id="jump-game-before-point"></div>
+      <div id="jump-game-container" class="jump-game-container anime-invisible">
         <canvas
           id="jump-game-canvas"
           class="jump-game-canvas"
@@ -121,54 +158,50 @@
         </div>
         <div class="text-sm">
           <p>
-            <i class="fas fa-arrow-up"></i
-            >簡単なJump&Runゲームです。JavaScriptのみで動作しています。
+            <i class="fas fa-arrow-up"></i>簡単なJump&Runゲームです。Canvas &
+            JavaScriptで動作しています。
           </p>
         </div>
       </div>
       <!-- Main Container -->
+      <div id="main-before-point"></div>
       <div id="main-container" class="main-container">
-        <!-- Index -->
-        <div class="index">
-          <ul>
-            <p class="text-bg">目次</p>
-            <li><a href="#introduction">はじめに</a></li>
-            <li><a href="#profile">基本情報</a></li>
-          </ul>
-        </div>
         <!-- Introduction -->
         <h2>
-          <a id="introduction" href="#main-container" class="link-mark">#</a
-          >はじめに
+          <a id="introduction" href="#" class="link-mark">#</a>Introduction
         </h2>
+        <p>このサイトは私のポートフォリオサイトです。</p>
+        <p>
+          個人開発のしたアプリの紹介とこれまで関わった職務経歴について説明します。
+        </p>
         <h3>
-          <div class="msg">
-            <a
-              href="#"
-              class="text danger"
-              id="nodal-is-this-site"
-              nodal
-              onclick="return false;"
-              ><i class="fas fa-question-circle"></i>このサイトの構成は？</a
-            >
-          </div>
+          <a
+            href="#"
+            class="text danger"
+            id="nodal-is-this-site"
+            nodal
+            onclick="return false;"
+            ><i class="fas fa-question-circle"></i>このサイトの構成は？</a
+          >
         </h3>
         <!-- Profile -->
-        <h2>
-          <a id="profile" href="#main-container" class="link-mark">#</a>基本情報
-        </h2>
+        <h2><a id="profile" href="#" class="link-mark">#</a>Profile</h2>
         <div id="profile-button-container">
           <div class="f-left">
             <img src="dist/Z250.jpg" alt="Z250" class="radius-300" />
           </div>
           <div id="profile-container" class="profile-container">
-            <ul>
+            <ul class="profile">
               <li>保坂 望(Nozomi Hosaka)</li>
               <li>26歳</li>
               <li>Male</li>
+              <li>Tennis(13years)</li>
+              <li>Z250</li>
             </ul>
           </div>
         </div>
+        <div id="technic" class="technic"></div>
+        <div id="contact" class="contact"></div>
       </div>
       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </main>

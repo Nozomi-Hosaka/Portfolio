@@ -10,9 +10,15 @@ console.log("勉強用ブログ");
 console.log("%chttp://non-it-infomation.com/", "font-size:25px;color:#ff0000;");
 
 import anime from "animejs";
-var title = document.getElementById("title");
+var carouselMsg = document.getElementById("carousel-msg");
+var jumpGameBeforePoint = document.getElementById("jump-game-before-point");
+var mainBeforePoint = document.getElementById("main-before-point");
 var jumpGameContainer = document.getElementById("jump-game-container");
 var mainContainer = document.getElementById("main-container");
+var introductionLink = document.getElementById("introduction-link");
+var profileLink = document.getElementById("profile-link");
+var technicLink = document.getElementById("technic-link");
+var contactLink = document.getElementById("contact-link");
 var profileButtonContainer = document.getElementById(
   "profile-button-container"
 );
@@ -23,41 +29,55 @@ var scroll_event =
     : "onmousewheel" in document
     ? "mousewheel"
     : "DOMMouseScroll";
-document.addEventListener(
-  scroll_event,
-  function() {
-    isDisplay(profileButtonContainer, profileContainer);
-  }.bind(profileButtonContainer, profileContainer)
-);
-document.addEventListener(
-  "touchmove.noScroll",
-  function() {
-    isDisplay(profileButtonContainer, profileContainer);
-  }.bind(profileButtonContainer, profileContainer)
-);
-
+document.addEventListener(scroll_event, function() {
+  isDisplay(profileButtonContainer, profileContainer);
+  //isDisplay(jumpGameBeforePoint, jumpGameContainer);
+  isDisplayCSS(jumpGameBeforePoint, jumpGameContainer);
+  isDisplay(mainBeforePoint, mainContainer);
+});
+document.addEventListener("touchmove.noScroll", function() {
+  isDisplay(profileButtonContainer, profileContainer);
+  //isDisplay(jumpGameBeforePoint, jumpGameContainer);
+  isDisplayCSS(jumpGameBeforePoint, jumpGameContainer);
+  isDisplay(mainBeforePoint, mainContainer);
+});
+introductionLink.addEventListener("click", function() {
+  display(mainContainer);
+});
+profileLink.addEventListener("click", function() {
+  display(mainContainer);
+});
+technicLink.addEventListener("click", function() {
+  display(mainContainer);
+});
+contactLink.addEventListener("click", function() {
+  display(mainContainer);
+});
 function isDisplay(target, displayObj) {
   var targetTop = target.getBoundingClientRect().top;
   var targetBottom = target.getBoundingClientRect().bottom;
   if (0 < targetTop && targetBottom <= window.innerHeight) {
-    anime({
-      targets: displayObj,
-      translateX: -1920,
-      direction: 300
-    });
+    display(displayObj);
   }
 }
-
+function display(displayObj) {
+  anime({
+    targets: displayObj,
+    translateX: 1920,
+    direction: 300
+  });
+}
+function isDisplayCSS(target, displayObj) {
+  var targetTop = target.getBoundingClientRect().top;
+  var targetBottom = target.getBoundingClientRect().bottom;
+  if (0 < targetTop && targetBottom <= window.innerHeight) {
+    displayCSS(displayObj);
+  }
+}
+function displayCSS(displayObj) {
+  displayObj.classList.add("anime-visible");
+}
 anime({
-  targets: title,
-  translateY: 100
-});
-anime({
-  targets: jumpGameContainer,
-  translateY: 500
-});
-anime({
-  targets: mainContainer,
-  translateX: 1920,
-  direction: 300
+  targets: carouselMsg,
+  translateY: 700
 });

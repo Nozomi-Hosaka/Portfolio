@@ -6,20 +6,8 @@ window.addEventListener("DOMContentLoaded", function(e) {
   );
   nodalIsThisSite.addEventListener("click", function(event) {
     nodalSiteDiscription.show();
-    scrollOff();
     return false;
   });
-  /*
-  var nodalWhoAmI = document.getElementById("nodal-who-am-i");
-  var nodalProfile = new Nodal(
-    document.getElementById("nodal-nozomi-hosaka-dispriction")
-  );
-  nodalWhoAmI.addEventListener("click", function() {
-    nodalProfile.show();
-    scrollOff();
-    return false;
-  });
-  */
 
   // ノーダルにクリックイベントを登録します。
   var nodalElements = document.getElementsByClassName("nodal");
@@ -37,8 +25,6 @@ window.addEventListener("DOMContentLoaded", function(e) {
       if (event.target.getAttribute("nodal") == null) {
         // ノーダルリンクではない
         nodalSiteDiscription.hide();
-        // nodalProfile.hide();
-        scrollOn();
       }
     }
   });
@@ -53,7 +39,6 @@ class Nodal {
     this.bodyDiv = document.createElement("div");
     this.buttonDiv = document.createElement("div");
     this.createContent();
-    this.createButton();
   }
   setTitle() {
     if (
@@ -78,6 +63,7 @@ class Nodal {
   createContent() {
     this.setTitle();
     this.setBody();
+    this.createButton();
     if (this.title != "") {
       this.createTitle();
     }
@@ -91,7 +77,14 @@ class Nodal {
     this.targetNodal.appendChild(this.titleDiv);
   }
   createBody() {
+    this.bodyDiv.classList.add("nodal-body");
     this.bodyDiv.innerHTML = this.body;
+    var bodyHeight =
+      this.targetNodal.clientHeight -
+      Dimension(this.titleDiv) -
+      Dimension(this.buttonDiv) -
+      50;
+    this.bodyDiv.style.height = bodyHeight + "px";
     this.targetNodal.appendChild(this.bodyDiv);
   }
   createButton() {
@@ -102,12 +95,15 @@ class Nodal {
       closeButton.setAttribute("href", "#");
       closeButton.setAttribute("onclick", "return false;");
       closeButton.classList.add("primary");
-      closeButton.classList.add("text-md");
+      closeButton.classList.add("text-bg");
       closeButton.textContent = ok;
       closeButton.style.width = 100;
-      closeButton.addEventListener("click", function() {
-        this.hide();
-      }.bind(this));
+      closeButton.addEventListener(
+        "click",
+        function() {
+          this.hide();
+        }.bind(this)
+      );
       this.buttonDiv.appendChild(closeButton);
       this.targetNodal.appendChild(this.buttonDiv);
     }
@@ -115,10 +111,16 @@ class Nodal {
   show() {
     this.targetNodal.classList.add("show");
     document.body.classList.add("shadow");
+    if (this.targetNodal.clientHeight >= this.bodyDiv.scrollHeight) {
+      scrollOff();
+    }
   }
   hide() {
     this.targetNodal.classList.remove("show");
     document.body.classList.remove("shadow");
+    if (this.targetNodal.clientHeight >= this.bodyDiv.scrollHeight) {
+      scrollOn();
+    }
   }
 }
 
@@ -144,4 +146,33 @@ function scrollOn() {
       : "DOMMouseScroll";
   document.removeEventListener(scroll_event, g_e);
   document.removeEventListener(".noScroll", g_e);
+}
+function Dimension(targetObj) {
+  var elmHeight,
+    elmMargin,
+    elm = targetObj;
+  if (document.all) {
+    // IE
+    elmHeight = elm.currentStyle.height;
+    elmMargin =
+      parseInt(elm.currentStyle.marginTop, 10) +
+      parseInt(elm.currentStyle.marginBottom, 10);
+  } else {
+    // Mozilla
+    elmHeight = parseInt(
+      document.defaultView.getComputedStyle(elm, "").getPropertyValue("height")
+    );
+    elmMargin =
+      parseInt(
+        document.defaultView
+          .getComputedStyle(elm, "")
+          .getPropertyValue("margin-top")
+      ) +
+      parseInt(
+        document.defaultView
+          .getComputedStyle(elm, "")
+          .getPropertyValue("margin-bottom")
+      );
+  }
+  return elmHeight + elmMargin;
 }

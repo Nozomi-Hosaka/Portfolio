@@ -22,7 +22,7 @@ div.nodal {
   bottom: 0;
   margin: auto;
   width: 80%;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 100px);
   border-radius: 5px;
   background-color: white;
   z-index: 1;
@@ -41,12 +41,16 @@ div.nodal.show {
   background-color: rgba($color: #636363, $alpha: 0.7);
 }
 .nodal-title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   border-bottom: solid #000000 1px;
   margin-bottom: 10px;
 }
-.nodal-button-container{
+.nodal-body {
+  position: relative;
+  overflow: scroll;
+}
+.nodal-button-container {
   position: absolute;
   right: 10px;
   bottom: 0;
