@@ -1,0 +1,42 @@
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+div.nodal {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: calc(100vh - 200px);
+  border-radius: 5px;
+  background-color: white;
+  z-index: 1;
+  box-shadow: 0 0 8px gray;
+  padding: 20px;
+  transition: opacity 300ms, visibility 300ms;
+  opacity: 0;
+  visibility: hidden;
+}
+div.nodal.show {
+  transition: opacity 300ms, visibility 300ms;
+  opacity: 1;
+  visibility: visible;
+}
+.shadow {
+  background-color: rgba($color: #636363, $alpha: 0.7);
+}

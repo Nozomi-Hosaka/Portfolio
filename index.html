@@ -7,6 +7,7 @@
     <title>Nozomi Hosaka</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nodal.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -15,12 +16,42 @@
     />
   </head>
   <body>
-    <canvas id="jump-game-canvas" class="jump-game-canvas" width="1400" height="200"></canvas>
-    <a href="#" id="jump-game-start-button" class="primary">Start Game</a>
-    <a href="#" id="jump-game-restart-button" class="none disabled">Restart Game</a>
-    <a href="#" id="jump-game-end-button" class="primary">End Game</a>
-    <a href="#" id="jump-game-jump-button" class="none disabled">Jump</a>
-    <a href="#" id="jump-game-pause-button" class="none disabled">Pause</a>
+    <main id="main">
+      <!-- Modal -->
+      <div id="nodal-site-dispriction" class="nodal" title="テストタイトル">
+        テストメッセージ<br />test
+      </div>
+      <!-- Content -->
+      <h1 id="title" class="title">Nozomi Hosaka<br /></h1>
+      <div class="sm msg position-right">
+        <a href="#" class="text" id="nodal-is-this-site" nodal
+          ><i class="fas fa-question-circle"></i>このサイトの構成は？</a
+        >
+      </div>
+      <div id="jump-game-container" class="jump-game-container">
+        <canvas
+          id="jump-game-canvas"
+          class="jump-game-canvas"
+          width="1400"
+          height="200"
+        ></canvas>
+        <div class="jump-game-start-dialog">
+          <a href="#" id="jump-game-start-button" class="primary">Start Game</a>
+          <a href="#" id="jump-game-jump-button" class="none disabled">Jump</a>
+          <a href="#" id="jump-game-pause-button" class="none disabled"
+            >Pause</a
+          >
+          <a href="#" id="jump-game-restart-button" class="none disabled"
+            >Restart Game</a
+          >
+          <a href="#" id="jump-game-end-button" class="primary">End Game</a>
+        </div>
+      </div>
+      <div id="main-container" class="main-container"><h2>基本情報</h2></div>
+      <br />
+      <br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </main>
     <script src="./js/app.js"></script>
   </body>
 </html>

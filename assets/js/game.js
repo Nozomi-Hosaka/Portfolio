@@ -185,18 +185,21 @@ class JumpGame {
     var me = this;
     this.isObstacleMove = true;
 
-    var baseDate = moment().subtract(2, "seconds");
+    var randNum = Math.floor(Math.random()*(5000-1000)+1000);
+    var baseDate = moment().subtract(randNum, "ms");
     if (
       moment(baseDate).isAfter(this.dateContainer) ||
       this.dateContainer == null
     ) {
+      var randNumW = Math.floor(Math.random()*(40-10)+10);
+      var randNumH = Math.floor(Math.random()*(40-10)+10);
       this.addObstacle.push(
         new Obstacle(
           this.jgConvas,
-          this.canvasWidth - this.obstacleW,
-          this.canvasHeight - this.obstacleH,
-          this.obstacleW,
-          this.obstacleH
+          this.canvasWidth - randNumW,
+          this.canvasHeight - randNumH,
+          randNumW,
+          randNumH
         )
       );
       this.dateContainer = moment();
