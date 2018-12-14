@@ -111,14 +111,14 @@ class Nodal {
   show() {
     this.targetNodal.classList.add("show");
     document.body.classList.add("shadow");
-    if (this.targetNodal.clientHeight >= this.bodyDiv.scrollHeight) {
+    if (this.targetNodal.clientHeight >= this.bodyDiv.scrollHeight + 200) {
       scrollOff();
     }
   }
   hide() {
     this.targetNodal.classList.remove("show");
     document.body.classList.remove("shadow");
-    if (this.targetNodal.clientHeight >= this.bodyDiv.scrollHeight) {
+    if (this.targetNodal.clientHeight >= this.bodyDiv.scrollHeight + 200) {
       scrollOn();
     }
   }

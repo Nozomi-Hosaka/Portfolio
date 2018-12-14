@@ -12,6 +12,9 @@ main {
 img {
   height: auto;
 }
+.note {
+  margin-left: 10px;
+}
 .carousel {
   background-image: url("../dist/Z250_BackGround.jpg");
   width: 100%;
@@ -53,11 +56,22 @@ h1.title {
   font-weight: 900;
   margin: 30px;
 }
+.introduction-container {
+  position: relative;
+  left: -1920px;
+}
 .profile-container {
   position: relative;
   left: -1920px;
 }
-.main-container {
+.technic-title,
+.program-lang-container,
+.tool-container,
+.other-container {
+  position: relative;
+  left: -1920px;
+}
+.contact-container {
   position: relative;
   left: -1920px;
 }
@@ -129,6 +143,14 @@ img.radius-300 {
   width: 300px;
   height: 300px;
 }
+img.square-auto-y-100 {
+  width: auto;
+  height: 100px;
+}
+img.square-300 {
+  width: 300px;
+  height: 300px;
+}
 .inline {
   display: inline-block;
 }
@@ -159,7 +181,12 @@ img.radius-300 {
 h2,
 h3 {
   margin-top: 30px;
+  margin-bottom: 10px;
 }
 .bold {
   font-weight: 900;
+}
+p.title {
+  font-size: 13px;
+  border-bottom: #000000 solid 1px;
 }
