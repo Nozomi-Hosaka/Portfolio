@@ -49,6 +49,9 @@
             </ul>
             <ul>
               <li>
+                <a href="#product" id="product-link"><i class="fas fa-gift"></i>Product</a>
+              </li>
+              <li>
                 <a href="#contact" id="contact-link"><i class="fas fa-envelope"></i>Contact</a>
               </li>
             </ul>
@@ -100,7 +103,7 @@
           <p>このサイトは私のポートフォリオサイトです。</p>
           <p>個人開発のしたアプリの紹介とこれまで関わった職務経歴について説明します。</p>
           <h3>
-            <a href="#" class="text danger" id="nodal-is-this-site" nodal onclick="return false;"
+            <a href="#" class="text-danger" id="nodal-is-this-site" nodal onclick="return false;"
               ><i class="fas fa-question-circle"></i>このサイトの構成は？</a
             >
             <i class="fas fa-arrow-left"></i> Click!!
@@ -160,6 +163,12 @@
             <div class="f-left" id="c-sharp">
               <img src="./dist/c_sharp.png" alt="c_sharp" class="square-auto-y-100" />
             </div>
+            <div class="f-left" id="smarty">
+              <img src="./dist/smarty.png" alt="smarty" class="square-auto-y-100" />
+            </div>
+            <div class="f-left" id="jQuery">
+              <img src="./dist/jquery-logo-001.png" alt="jQuery" class="square-auto-y-100" />
+            </div>
           </div>
           <div id="tool-container-before-point"></div>
           <div id="tool-container" class="tool-container">
@@ -169,15 +178,96 @@
             </div>
             <div class="f-left" id="mac"><img src="./dist/mac.png" alt="mac" class="square-auto-y-100" /></div>
             <div class="f-left" id="git"><img src="./dist/git.png" alt="git" class="square-auto-y-100" /></div>
+            <div class="f-left" id="git-hub">
+              <img src="./dist/GitHub-Mark-120px-plus.png" alt="GitHub" class="square-auto-y-100" />
+            </div>
             <div class="f-left" id="docker"><img src="./dist/docker.png" alt="docker" class="square-auto-y-100" /></div>
             <div class="f-left"><img src="./dist/vagrant.png" alt="vagrant" class="square-auto-y-100" /></div>
           </div>
           <div id="other-container-before-point"></div>
           <div id="other-container" class="other-container">
             <h3>Other</h3>
-            <div class="f-left" id="centos"><img src="./dist/centos.svg" alt="centos" class="square-auto-y-100" /></div>
-            <div class="f-left" id="apache"><img src="./dist/apache.png" alt="apache" class="square-auto-y-100" /></div>
             <div class="f-left" id="nginx"><img src="./dist/nginx.svg" alt="nginx" class="square-auto-y-100" /></div>
+            <div class="f-left" id="apache"><img src="./dist/apache.png" alt="apache" class="square-auto-y-100" /></div>
+            <div class="f-left" id="centos"><img src="./dist/centos.svg" alt="centos" class="square-auto-y-100" /></div>
+          </div>
+        </div>
+        <!-- Product -->
+        <div id="product-container-before-point"></div>
+        <div id="product-container" class="product-container">
+          <h2><a href="#" id="product" class="link-mark">#</a>Product</h2>
+          <div class="product-discription">
+            <p>いくつかの個人開発プロダクトをご紹介します。</p>
+            <p>
+              いずれも完全無料なので、よければ使用してみてください。なお、ソースコードは全てGitHubで公開されていますので、中身が見たい場合はそれぞれ見てください。
+            </p>
+            <ul>
+              <li class="product-box">
+                <h3 class="product-title">
+                  <a href="https://todo.nozomi.bike" target="_blank">トドTask</a
+                  ><span class="text-sm">
+                    [ <a href="https://todo.nozomi.bike" target="_blank">https://todo.nozomi.bike</a> ]
+                  </span>
+                  <div class="badge primary text-sm">開発進行中</div>
+                  <div class="badge danger text-sm">リリース済</div>
+                  <div class="text-sm inline">
+                    <img src="./dist/GitHub-Mark-120px-plus.png" alt="GitHub" class="img-icon" />
+                    <a href="https://github.com/Nozomi-Hosaka/TodoServer" target="_blank"
+                      >https://github.com/Nozomi-Hosaka/TodoServer</a
+                    >
+                  </div>
+                </h3>
+                <a href="https://todo.nozomi.bike" target="_blank">
+                  <img src="./dist/todo_icon.jpg" alt="todoTask" class="square-auto-y-100" />
+                </a>
+                <p>リリース済みで、<u>既に何人かが使用している</u>Todoタスクです。</p>
+                <p class="text-bg"><strong>特徴は「シンプル & SPA」</strong></p>
+                <p>
+                  APIの有効な開発手法を追い求めて、単純なロジックで作成できるTodoリストサービスを開発していたら、使用可能なレベルまで来ていましたので、公開しました。
+                </p>
+                <p>
+                  当然、<span class="text-bg">API利用も可能</span
+                  >で、独自のアプリからこのサービスにアクセスすれば、タスクの共有も可能です。
+                </p>
+                <p>
+                  追々、クロスプラットフォーム開発で簡単なアプリを公開する予定です。業務アプリ系の筆頭サービスです。
+                </p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/laravel.svg" alt="laravel" class="square-auto-y-50" />
+                <img src="./dist/vuejs-logo.png" alt="vue" class="square-auto-y-50" />
+              </li>
+              <li class="product-box">
+                <h3 class="product-title">
+                    <a href="https://non-it-infomation.com" target="_blank">non's Labo</a><span class="text-sm">
+                    [ <a href="https://non-it-infomation.com" target="_blank">https://non-it-infomation.com</a> ]
+                  </span>
+                  <div class="badge danger text-sm">リリース済</div>
+                  <div class="text-sm inline">
+                    <img src="./dist/GitHub-Mark-120px-plus.png" alt="GitHub" class="img-icon" />
+                    <a href="https://github.com/Nozomi-Hosaka/myblog" target="_blank"
+                      >https://github.com/Nozomi-Hosaka/myblog</a
+                    >
+                  </div>
+                </h3>
+                <img src="./dist/z250.png" alt="z250" class="square-auto-y-100" />
+                <p><strong class="text-bg">処女作</strong>。開発に歴史ある作品です。</p>
+                <p>業界に入ったばかりのころ、ブログサービスを自分で作成して、自分の日記を書こうと作成しました。</p>
+                <p>初期時点（2014年ごろ？）はPHP・Smarty・jQueryの構成。ほぼフルスクラッチでの開発です。</p>
+                <p>
+                  1年ほど経ち、勉強がてら<strong>CakePHP3</strong>へ移行。現在は開発（と記事更新）がストップしている。
+                </p>
+                <p>
+                  フルスクラッチの名残で、色々なjsライブラリやプラグインが導入されており、ある意味個人開発案件の中でもレガシーコードの分類。
+                </p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/cakephp.svg" alt="cakephp" class="square-auto-y-50" />
+                <img src="./dist/smarty.png" alt="smarty" class="square-auto-y-50" />
+                <img src="./dist/jquery-logo-001.png" alt="jQuery" class="square-auto-y-50" />
+                <p class="text-sm inline">...etc...</p>
+              </li>
+            </ul>
           </div>
         </div>
         <!-- Contact -->

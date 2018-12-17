@@ -56,11 +56,10 @@ h1.title {
   font-weight: 900;
   margin: 30px;
 }
-.introduction-container {
-  position: relative;
-  left: -1920px;
-}
-.profile-container {
+.introduction-container,
+.profile-container,
+.product-container,
+.contact-container {
   position: relative;
   left: -1920px;
 }
@@ -71,9 +70,14 @@ h1.title {
   position: relative;
   left: -1920px;
 }
-.contact-container {
-  position: relative;
-  left: -1920px;
+.product-box {
+  border-radius: 10px;
+  border: #000000 1px solid;
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 10px;
+}
+.product-title {
+  border-bottom: #000000 1px solid;
 }
 // 汎用
 a.primary {
@@ -86,7 +90,7 @@ a.primary {
   color: #ffffff;
   background-color: #0083ff;
 }
-a.text.danger {
+a.text-danger {
   color: red;
 }
 a.primary:hover {
@@ -137,6 +141,10 @@ a:hover {
 a.link-mark::after {
   content: " ";
 }
+img.img-icon {
+  width: auto;
+  height: 30px;
+}
 img.radius-300 {
   overflow: hidden;
   border-radius: 150px;
@@ -146,6 +154,10 @@ img.radius-300 {
 img.square-auto-y-100 {
   width: auto;
   height: 100px;
+}
+img.square-auto-y-50 {
+  width: auto;
+  height: 50px;
 }
 img.square-300 {
   width: 300px;
@@ -189,4 +201,18 @@ h3 {
 p.title {
   font-size: 13px;
   border-bottom: #000000 solid 1px;
+}
+div.badge {
+  display: inline;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+}
+.primary {
+  color: #ffffff;
+  background-color: #0083ff;
+}
+.danger {
+  color: #ffffff;
+  background-color: red;
 }

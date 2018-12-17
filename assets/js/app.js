@@ -24,9 +24,12 @@ var otherContainer = document.getElementById('other-container');
 var otherContainerBeforePoint = document.getElementById('other-container-before-point');
 var contactContainer = document.getElementById('contact-container');
 var contactContainerBeforePoint = document.getElementById('contact-container-before-point');
+var productContainer = document.getElementById('product-container');
+var productContainerBeforePoint = document.getElementById('product-container-before-point');
 var introductionLink = document.getElementById("introduction-link");
 var profileLink = document.getElementById("profile-link");
 var technicLink = document.getElementById("technic-link");
+var productLink = document.getElementById('product-link');
 var contactLink = document.getElementById("contact-link");
 var scroll_event = "onwheel" in document ? "wheel" : "onmousewheel" in document ? "mousewheel" : "DOMMouseScroll";
 document.addEventListener(scroll_event, function() {
@@ -39,6 +42,7 @@ document.addEventListener(scroll_event, function() {
   isDisplay(toolContainerBeforePoint, toolContainer);
   isDisplay(otherContainerBeforePoint, otherContainer);
   isDisplay(contactContainerBeforePoint, contactContainer);
+  isDisplay(productContainerBeforePoint, productContainer);
 });
 document.addEventListener("touchmove.noScroll", function() {
   //isDisplay(jumpGameBeforePoint, jumpGameContainer);
@@ -50,6 +54,7 @@ document.addEventListener("touchmove.noScroll", function() {
   isDisplay(toolContainerBeforePoint, toolContainer);
   isDisplay(otherContainerBeforePoint, otherContainer);
   isDisplay(contactContainerBeforePoint, contactContainer);
+  isDisplay(productContainerBeforePoint, productContainer);
 });
 introductionLink.addEventListener("click", function() {
   display(introductionContainer);
@@ -63,6 +68,9 @@ technicLink.addEventListener("click", function() {
   display(toolContainer);
   display(otherContainer);
 });
+productLink.addEventListener("click", function() {
+  display(productContainer);
+})
 contactLink.addEventListener("click", function() {
   display(contactContainer);
 });
