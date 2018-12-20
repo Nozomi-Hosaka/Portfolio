@@ -4,6 +4,20 @@
   padding: 0px;
   overflow-x: hidden;
   font-family: "Raleway", "mplus-1p-regular", sans-serif;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  /*transition: left 0.1s ease-in-out 0s, top 0.1s ease-in-out 0s;*/
+  z-index: 900;
 }
 main {
   margin: auto;
@@ -28,7 +42,7 @@ img {
 }
 .carousel-msg {
   position: absolute;
-  top: -500px;
+  top: -600px;
   width: 100%;
 }
 div.index > ul,
@@ -45,7 +59,7 @@ ul li img {
   width: 30%;
 }
 ul.profile {
-  margin-left: 50px;
+  padding-left: 50px;
 }
 ul.profile li {
   margin-bottom: 10px;
@@ -54,11 +68,12 @@ ul.profile li {
 h1.title {
   font-size: 70px;
   font-weight: 900;
-  margin: 30px;
+  margin: 30px 30px 100px 30px;
 }
 .introduction-container,
 .profile-container,
 .product-container,
+.work-container,
 .contact-container {
   position: relative;
   left: -1920px;
@@ -70,13 +85,13 @@ h1.title {
   position: relative;
   left: -1920px;
 }
-.product-box {
+.list-box {
   border-radius: 10px;
   border: #000000 1px solid;
   padding: 0px 0px 10px 0px;
   margin-bottom: 10px;
 }
-.product-title {
+.list-title {
   border-bottom: #000000 1px solid;
 }
 // 汎用

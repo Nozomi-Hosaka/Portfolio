@@ -7,6 +7,11 @@ var jumpGameEndButton = document.getElementById("jump-game-end-button");
 var jumpGameJampButton = document.getElementById("jump-game-jump-button");
 var jumpGamePauseButton = document.getElementById("jump-game-pause-button");
 onload = function() {
+  // キーボード操作禁止
+  document.addEventListener("keydown", function(event) {
+    event.preventDefault();
+  });
+
   // ゲーム準備
   if (!jumpGameCanvas || !jumpGameCanvas.getContext) {
     return false;

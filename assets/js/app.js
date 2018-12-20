@@ -14,22 +14,26 @@ var introductionContainer = document.getElementById("introduction-container");
 var introductionBeforePoint = document.getElementById("introduction-before-point");
 var profileContainer = document.getElementById("profile-container");
 var profileBeforePoint = document.getElementById("profile-before-point");
-var technicTitle = document.getElementById('technic-title');
-var technicTitleBeforePoint = document.getElementById('technic-title-before-point');
-var programLangContainer = document.getElementById('program-lang-container');
-var programLangBeforePoint = document.getElementById('program-lang-before-point');
-var toolContainer = document.getElementById('tool-container');
-var toolContainerBeforePoint = document.getElementById('tool-container-before-point');
-var otherContainer = document.getElementById('other-container');
-var otherContainerBeforePoint = document.getElementById('other-container-before-point');
-var contactContainer = document.getElementById('contact-container');
-var contactContainerBeforePoint = document.getElementById('contact-container-before-point');
-var productContainer = document.getElementById('product-container');
-var productContainerBeforePoint = document.getElementById('product-container-before-point');
+var technicTitle = document.getElementById("technic-title");
+var technicTitleBeforePoint = document.getElementById("technic-title-before-point");
+var programLangContainer = document.getElementById("program-lang-container");
+var programLangBeforePoint = document.getElementById("program-lang-before-point");
+var toolContainer = document.getElementById("tool-container");
+var toolContainerBeforePoint = document.getElementById("tool-container-before-point");
+var otherContainer = document.getElementById("other-container");
+var otherContainerBeforePoint = document.getElementById("other-container-before-point");
+var contactContainer = document.getElementById("contact-container");
+var contactContainerBeforePoint = document.getElementById("contact-container-before-point");
+var productContainer = document.getElementById("product-container");
+var productContainerBeforePoint = document.getElementById("product-container-before-point");
+var workContainer = document.getElementById("work-container");
+var workContainerBeforePoint = document.getElementById("work-container-before-point");
+var gameLink = document.getElementById("game-link");
 var introductionLink = document.getElementById("introduction-link");
 var profileLink = document.getElementById("profile-link");
 var technicLink = document.getElementById("technic-link");
-var productLink = document.getElementById('product-link');
+var productLink = document.getElementById("product-link");
+var workLink = document.getElementById("work-link");
 var contactLink = document.getElementById("contact-link");
 var scroll_event = "onwheel" in document ? "wheel" : "onmousewheel" in document ? "mousewheel" : "DOMMouseScroll";
 document.addEventListener(scroll_event, function() {
@@ -43,6 +47,7 @@ document.addEventListener(scroll_event, function() {
   isDisplay(otherContainerBeforePoint, otherContainer);
   isDisplay(contactContainerBeforePoint, contactContainer);
   isDisplay(productContainerBeforePoint, productContainer);
+  isDisplay(workContainerBeforePoint, workContainer);
 });
 document.addEventListener("touchmove.noScroll", function() {
   //isDisplay(jumpGameBeforePoint, jumpGameContainer);
@@ -55,6 +60,10 @@ document.addEventListener("touchmove.noScroll", function() {
   isDisplay(otherContainerBeforePoint, otherContainer);
   isDisplay(contactContainerBeforePoint, contactContainer);
   isDisplay(productContainerBeforePoint, productContainer);
+  isDisplay(workContainerBeforePoint, workContainer);
+});
+gameLink.addEventListener("click", function() {
+  displayCSS(jumpGameContainer);
 });
 introductionLink.addEventListener("click", function() {
   display(introductionContainer);
@@ -70,7 +79,10 @@ technicLink.addEventListener("click", function() {
 });
 productLink.addEventListener("click", function() {
   display(productContainer);
-})
+});
+workLink.addEventListener("click", function() {
+  display(workContainer);
+});
 contactLink.addEventListener("click", function() {
   display(contactContainer);
 });

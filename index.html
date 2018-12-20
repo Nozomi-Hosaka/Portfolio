@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Nozomi Hosaka</title>
+    <title>Nozomi Hosaka's Portfolio</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/nodal.css" />
@@ -27,8 +27,79 @@
 
       gtag("config", "UA-108133373-4");
     </script>
+    <script type="text/javascript">
+      (function() {
+        var canvas;
+        var ctx;
+        var width;
+        var height;
+        var ballX;
+        var ballY;
+        var mouseX;
+        var mouseY;
+
+        // 初期化処理
+        function initialize() {
+          canvas = document.getElementById("canvas");
+          if (!canvas && !canvas.getContext) {
+            return false;
+          }
+          ctx = canvas.getContext("2d");
+          width = ctx.canvas.width;
+          height = ctx.canvas.height;
+
+          // ボールの初期位置は中心
+          ballX = mouseX = width / 2;
+          ballY = mouseY = height / 2;
+
+          // マウス移動処理
+          document.body.addEventListener("mousemove", function(e){
+            canvas.style.left = Number(e.clientX - 20) + 'px';
+            canvas.style.top = Number(e.clientY - 20) + 'px';
+          })
+          setInterval(drawBall, 10);
+        }
+
+        // ボールの描画
+        var hue = 0;
+
+        function drawBall() {
+          var radius = 10;
+          var delay = 20;
+          hue += 0.5;
+
+          ballX = (mouseX + delay * ballX) / (delay + 1);
+          ballY = (mouseY + delay * ballY) / (delay + 1);
+
+          ctx.save();
+          ctx.fillStyle = "rgba(255, 255, 255, 0)";
+          ctx.fillRect(0, 0, width, height);
+
+          // 円の描画設定
+          ctx.beginPath();
+          ctx.arc(ballX, ballY, radius, 0, 2 * Math.PI, true);
+          ctx.closePath();
+
+          // 色設定
+          ctx.strokeStyle = "hsl(" + hue + ", 50%, 50%)";
+          ctx.fillStyle = "hsl(" + hue + ", 50%, 50%)";
+          ctx.shadowColor = "hsl(" + hue + ", 50%, 50%)";
+          ctx.shadowBlur = 10;
+
+          // 描画実行
+          ctx.stroke();
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // 初期化イベント
+        window.addEventListener("load", initialize, false);
+      })();
+    </script>
   </head>
   <body>
+    <div id="canvas-wrap"><canvas id="canvas" width="80" height="80"></canvas></div>
+
     <!-- Carousel -->
     <div class="carousel">
       <div class="carousel-wrap center shadow-wrap">
@@ -52,9 +123,17 @@
                 <a href="#product" id="product-link"><i class="fas fa-gift"></i>Product</a>
               </li>
               <li>
+                <a href="#work" id="work-link"><i class="fas fa-briefcase"></i>Work</a>
+              </li>
+              <li>
                 <a href="#contact" id="contact-link"><i class="fas fa-envelope"></i>Contact</a>
               </li>
             </ul>
+            <div>
+              <a href="#jump-game-container" id="game-link">
+                <i class="fas fa-arrow-circle-down"></i> scroll <i class="fas fa-arrow-circle-down"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -119,6 +198,7 @@
               <li>保坂 望(Nozomi Hosaka)</li>
               <li>GitHub <a href="https://github.com/Nozomi-Hosaka" target="_blank">@Nozomi Hosaka</a></li>
               <li>Qiita <a href="https://qiita.com/Nozomi-Hosaka" target="_blank">@Nozomi Hosaka</a></li>
+              <li>Blog <a href="https://blog.nozomi.bike" target="_blank">@Nozomi Hosaka</a></li>
               <li>26歳</li>
               <li>Male</li>
               <li>Tennis(13years) <span class="text-sm">近畿大阪公立校大会（団体）準優勝</span></li>
@@ -133,6 +213,7 @@
             </p>
             <p>医療系ソフトウェアハウスにてPHP・C#を中心に電子薬歴や、症例登録システム開発業務などを行う。</p>
             <p>その後、POSシステムの開発業務を行っている。</p>
+            <p><a href="" class="text-danger">もっと詳しく</a><span class="text-sm">（現在作成中です。）</span></p>
           </div>
         </div>
         <!-- Technic -->
@@ -142,6 +223,9 @@
           <div id="program-lang-before-point"></div>
           <div id="program-lang-container" class="program-lang-container">
             <h3>Program</h3>
+            <div class="f-left" id="php">
+              <figure><img src="./dist/new-php-logo.svg" alt="php" class="square-auto-y-100" /></figure>
+            </div>
             <div class="f-left" id="laravel">
               <figure><img src="./dist/laravel.svg" alt="laravel" class="square-auto-y-100" /></figure>
             </div>
@@ -157,15 +241,16 @@
             <div class="f-left" id="postgres">
               <img src="./dist/postgres.png" alt="postgres" class="square-auto-y-100" />
             </div>
+            <div class="f-left" id="sqlserver">
+              <img src="./dist/150821-sqlserver.png" alt="sqlserver" class="square-auto-y-100" />
+            </div>
             <div class="f-left" id="monaca">
               <img src="./dist/Monaca_Logo_01.svg" alt="monaca" class="square-auto-y-100" />
             </div>
             <div class="f-left" id="c-sharp">
               <img src="./dist/c_sharp.png" alt="c_sharp" class="square-auto-y-100" />
             </div>
-            <div class="f-left" id="smarty">
-              <img src="./dist/smarty.png" alt="smarty" class="square-auto-y-100" />
-            </div>
+            <div class="f-left" id="smarty"><img src="./dist/smarty.png" alt="smarty" class="square-auto-y-100" /></div>
             <div class="f-left" id="jQuery">
               <img src="./dist/jquery-logo-001.png" alt="jQuery" class="square-auto-y-100" />
             </div>
@@ -202,8 +287,8 @@
               いずれも完全無料なので、よければ使用してみてください。なお、ソースコードは全てGitHubで公開されていますので、中身が見たい場合はそれぞれ見てください。
             </p>
             <ul>
-              <li class="product-box">
-                <h3 class="product-title">
+              <li class="list-box">
+                <h3 class="list-title">
                   <a href="https://todo.nozomi.bike" target="_blank">トドTask</a
                   ><span class="text-sm">
                     [ <a href="https://todo.nozomi.bike" target="_blank">https://todo.nozomi.bike</a> ]
@@ -227,7 +312,7 @@
                 </p>
                 <p>
                   当然、<span class="text-bg">API利用も可能</span
-                  >で、独自のアプリからこのサービスにアクセスすれば、タスクの共有も可能です。
+                  >で、あなたの独自のアプリからこのサービスにアクセスすれば、タスクの共有も可能です。
                 </p>
                 <p>
                   追々、クロスプラットフォーム開発で簡単なアプリを公開する予定です。業務アプリ系の筆頭サービスです。
@@ -237,9 +322,10 @@
                 <img src="./dist/laravel.svg" alt="laravel" class="square-auto-y-50" />
                 <img src="./dist/vuejs-logo.png" alt="vue" class="square-auto-y-50" />
               </li>
-              <li class="product-box">
-                <h3 class="product-title">
-                    <a href="https://non-it-infomation.com" target="_blank">non's Labo</a><span class="text-sm">
+              <li class="list-box">
+                <h3 class="list-title">
+                  <a href="https://non-it-infomation.com" target="_blank">non's Labo</a
+                  ><span class="text-sm">
                     [ <a href="https://non-it-infomation.com" target="_blank">https://non-it-infomation.com</a> ]
                   </span>
                   <div class="badge danger text-sm">リリース済</div>
@@ -267,6 +353,196 @@
                 <img src="./dist/jquery-logo-001.png" alt="jQuery" class="square-auto-y-50" />
                 <p class="text-sm inline">...etc...</p>
               </li>
+              <li class="list-box">
+                <h3 class="list-title">
+                  <a href="https://tourmatch.nozomi.bike" target="_blank">旅は道連れ!!【ツーマッチ】</a
+                  ><span class="text-sm">
+                    [ <a href="https://tourmatch.nozomi.bike" target="_blank">https://tourmatch.nozomi.bike</a> ]
+                  </span>
+                  <div class="badge primary text-sm">開発進行中</div>
+                  <div class="badge danger text-sm">開発中</div>
+                  <div class="text-sm inline">
+                    <img src="./dist/GitHub-Mark-120px-plus.png" alt="GitHub" class="img-icon" />
+                    <a href="https://github.com/Nozomi-Hosaka/touring" target="_blank"
+                      >https://github.com/Nozomi-Hosaka/touring</a
+                    >
+                  </div>
+                </h3>
+                <img src="" alt="アイコン未定" class="square-auto-y-100" />
+                <p>
+                  <strong class="text-bg">個人開発でサービスを作ろうと思ったきっかけ。</strong
+                  >この子のためにいろいろ勉強しています。
+                </p>
+                <p>
+                  社会人2年目にバイクの免許をとったものの、ソロツーリングや内輪だけのメンバーでツーリングに行くことが多く、どうしようかといろいろなSNSで探してみましたが、なかなか良いところが見つからず。
+                </p>
+                <p>これもしかして競合いないんじゃないのかと思いつき開発に着手しました。</p>
+                <p>若者が集まりそうなツーリング専用マッチングサービスにしていきたいです。</p>
+                <p>もちろんSNSアプリの開発予定があります。</p>
+                <p>初めてLaravelを使用したプロジェクトでもあります。</p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/laravel.svg" alt="laravel" class="square-auto-y-50" />
+                <img src="./dist/Monaca_Logo_01.svg" alt="monaca" class="square-auto-y-50" />
+              </li>
+              <li class="list-box">
+                <h3 class="list-title">
+                  <a href="https://spotter.nozomi.bike" target="_blank">Spotter</a
+                  ><span class="text-sm">
+                    [ <a href="https://spotter.nozomi.bike" target="_blank">https://spotter.nozomi.bike</a> ]
+                  </span>
+                  <div class="badge primary text-sm">開発進行中</div>
+                  <div class="badge danger text-sm">開発中</div>
+                  <div class="text-sm inline">
+                    <img src="./dist/GitHub-Mark-120px-plus.png" alt="GitHub" class="img-icon" />
+                    <a href="https://github.com/Nozomi-Hosaka/Spotter-Server" target="_blank"
+                      >https://github.com/Nozomi-Hosaka/Spotter-Server</a
+                    >
+                    <img src="./dist/GitHub-Mark-120px-plus.png" alt="GitHub" class="img-icon" />
+                    <a href="https://github.com/Nozomi-Hosaka/Spotter-App" target="_blank"
+                      >https://github.com/Nozomi-Hosaka/Spotter-App</a
+                    >
+                  </div>
+                </h3>
+                <i class="fab fa-pinterest-square fa-8x"></i>
+                <p><strong class="text-bg">ツーマッチのための地点共有型SNSアプリ</strong></p>
+                <p>単体でも動作します。自分のお気に入り地点を登録し、共有するだけのサービス。</p>
+                <p>
+                  マニア向けのスポット登録などができれば、そこを目的地にツーリングプランを立てることに繋げる事ができると考え作成。
+                </p>
+                <p>よくよく考えればスポット系のまとめサイトも多いので、ウケるときはウケそう？</p>
+                <p>位置情報を取り扱うアプリの開発予定があります。</p>
+                <p>Google APIを駆使したサービスです。地点情報系はGoogle Mapを使用しています。</p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/laravel.svg" alt="laravel" class="square-auto-y-50" />
+                <img src="./dist/vuejs-logo.png" alt="vue" class="square-auto-y-50" />
+                <img src="./dist/Monaca_Logo_01.svg" alt="monaca" class="square-auto-y-50" />
+              </li>
+              <li>...etc...</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Work -->
+        <div id="work-container-before-point"></div>
+        <div id="work-container" class="work-container">
+          <h2><a href="#" id="work" class="link-mark">#</a>Work</h2>
+          <div class="work-discription">
+            <p>これまでの会社での業務経験を記します。</p>
+            <ul>
+              <li class="list-box">
+                <h3 class="list-title">
+                  POSレジサービスのバックエンド開発
+                  <div class="badge primary text-sm">開発</div>
+                  <div class="badge danger text-sm">半年</div>
+                </h3>
+                <p>初めてチーム開発した案件です。</p>
+                <p>
+                  非常に複雑なお金の取引を再現するのが難しいと感じておりますが、その分プログラムも複雑でチームの方々の優れたソースを見て、日々勉強になっていると自負しています。
+                </p>
+                <p>現在進行形でこの開発業務を進めており、3ヶ月に一度のペースでバージョンが上がっています。</p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/new-php-logo.svg" alt="php" class="square-auto-y-50" />
+                <img src="./dist/logo-mysql-170x115.png" alt="mysql" class="square-auto-y-50" />
+                <img src="./dist/laravel.svg" alt="laravel" class="square-auto-y-50" />
+                <img src="./dist/cakephp.svg" alt="cakephp" class="square-auto-y-50" />
+                <img src="./dist/docker.png" alt="docker" class="square-auto-y-50" />
+                <img src="./dist/vagrant.png" alt="vagrant" class="square-auto-y-50" />
+              </li>
+              <li class="list-box">
+                <h3 class="list-title">
+                  自社製電子薬歴の開発業務
+                  <div class="badge primary text-sm">開発</div>
+                  <div class="badge primary text-sm">運用</div>
+                  <div class="badge primary text-sm">保守</div>
+                  <div class="badge danger text-sm">常時</div>
+                </h3>
+                <p>業務経歴で一番長く携わった業務のうちの一つです。</p>
+                <p>
+                  既に開発済みの薬歴アプリと自分が企画した電子薬歴の両方があり、企画した方の特徴は<strong>ユビキタスデザイン</strong>を意識して設計しました。
+                </p>
+                <p>
+                  既に開発済みの電子薬歴は機能が保証されていますがとてもレガシーなシステムでUIも非常に使いづらく、現場からの不満の声が挙がっていました。
+                </p>
+                <p>
+                  そこで新規開発したのがWEB上で動作する薬歴です。ローカルネットで動作するのでセキュリティリスクも低く、PC以外でも薬歴業務が進められるという考えのもと作成しました。
+                </p>
+                <p>ここで初めてAPIの重要性と必要性を感じたプロジェクトです。</p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/c_sharp.png" alt="c-sharp" class="square-auto-y-50" />
+                <img src="./dist/150821-sqlserver.png" alt="sqlserver" class="square-auto-y-50" />
+                <img src="./dist/new-php-logo.svg" alt="php" class="square-auto-y-50" />
+                <img src="./dist/smarty.png" alt="smarty" class="square-auto-y-50" />
+                <img src="./dist/jquery-logo-001.png" alt="jQuery" class="square-auto-y-50" />
+              </li>
+              <li class="list-box">
+                <h3 class="list-title">
+                  E-learningサイト
+                  <div class="badge primary text-sm">開発</div>
+                  <div class="badge primary text-sm">運用</div>
+                  <div class="badge primary text-sm">保守</div>
+                  <div class="badge danger text-sm">２年</div>
+                </h3>
+                <p>
+                  こちらも同様に基盤となるソースはありましたが、あまりに古くスマホ対応すらできていない状態でした。動画もフラッシュ動画という脆弱性のあるままだったので、videoタグを使用したモダンなサイトに一新しました。
+                </p>
+                <p>
+                  このスマホ対応を主に行い、そのついてでに、新規機能の追加とムービ処理のスマホ対応をおこないました。
+                </p>
+                <p>これがきっかけでフロント開発にも興味が出ました。</p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/new-php-logo.svg" alt="cakephp" class="square-auto-y-50" />
+                <img src="./dist/smarty.png" alt="smarty" class="square-auto-y-50" />
+                <img src="./dist/jquery-logo-001.png" alt="jQuery" class="square-auto-y-50" />
+                <img src="./dist/postgres.png" alt="postgres" class="square-auto-y-50" />
+              </li>
+              <li class="list-box">
+                <h3 class="list-title">
+                  症例登録システム
+                  <div class="badge primary text-sm">開発</div>
+                  <div class="badge primary text-sm">運用</div>
+                  <div class="badge primary text-sm">保守</div>
+                  <div class="badge danger text-sm">３年（都度）</div>
+                </h3>
+                <p><strong class="text-bg">かなりセキュリティの高いシステム</strong></p>
+                <p>簡単に言うとUSBがないと起動しないシステムです。このプロダクトについては詳細は説明できません。</p>
+                <p>
+                  概要は全国の呼吸器外科で行われる肺がん手術の症例を登録し、それを学術的に役立てようという委員会に対して作成しました。
+                </p>
+                <p>
+                  アドバイザーとして委員会に参加し、システムの観点からみた症例登録について言及させていただきました。
+                </p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/c_sharp.png" alt="c-sharp" class="square-auto-y-50" />
+                <img src="./dist/postgres.png" alt="postgres" class="square-auto-y-50" />
+                <img src="./dist/new-php-logo.svg" alt="php" class="square-auto-y-50" />
+              </li>
+              <li class="list-box">
+                <h3 class="list-title">
+                  社内業務システム
+                  <div class="badge primary text-sm">運用</div>
+                  <div class="badge primary text-sm">保守</div>
+                  <div class="badge danger text-sm">都度</div>
+                </h3>
+                <p>
+                  <strong class="text-bg">現場薬剤師のシフト管理や、日報の登録</strong
+                  >など業務全般に関わるシステムです。
+                </p>
+                <p>
+                  日報登録システムは新規に企画した機能です。そのデータから誰がどのくらい何をしたかを分析できるようになっています。
+                </p>
+                <p>しかし、ほとんど問い合わせ対応です。</p>
+                <p><u>このプロダクトのおかげでソースを読むのが得意になりました。</u></p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/cakephp.svg" alt="cakephp" class="square-auto-y-50" />
+                <img src="./dist/postgres.png" alt="monaca" class="square-auto-y-50" />
+              </li>
+              <li>...etc...</li>
             </ul>
           </div>
         </div>
@@ -277,7 +553,7 @@
           <a href="mailto:hosaka.non.work@gmail.com">hosaka.non.work@gmail.com</a>
         </div>
       </div>
-      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br />
     </main>
     <script src="./js/app.js"></script>
   </body>
