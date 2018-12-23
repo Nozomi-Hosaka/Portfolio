@@ -160,11 +160,11 @@ img.img-icon {
   width: auto;
   height: 30px;
 }
-img.radius-300 {
+img.radius-200 {
   overflow: hidden;
-  border-radius: 150px;
-  width: 300px;
-  height: 300px;
+  border-radius: 100px;
+  width: 200px;
+  height: 200px;
 }
 img.square-auto-y-100 {
   width: auto;
@@ -230,4 +230,28 @@ div.badge {
 .danger {
   color: #ffffff;
   background-color: red;
+}
+
+@media screen and (min-width: 0px) and (max-width: 450px) {
+  /* ZenFone 3, iPhone X 縦 */
+  main {
+    width: 95%;
+  }
+  .f-left {
+    float: inherit;
+  }
+  .carousel-msg {
+    top: -700px;
+  }
+}
+@media screen and (min-width: 451px) and (max-width: 850px) {
+  /* ZenFone 3, iPhone X 横 */
+}
+@media screen and (min-width: 851px) and (max-width: 920px) {
+  /* iPad Air 縦 */
+}
+@media screen and (min-width: 921px) and (max-width: 1350px) {
+  /* PC iPad Air 横 */
+}
+@media screen and (min-width: 1351px) {
 }

@@ -49,7 +49,7 @@ document.addEventListener(scroll_event, function() {
   isDisplay(productContainerBeforePoint, productContainer);
   isDisplay(workContainerBeforePoint, workContainer);
 });
-document.addEventListener("touchmove.noScroll", function() {
+document.addEventListener("touchmove", function() {
   //isDisplay(jumpGameBeforePoint, jumpGameContainer);
   isDisplayCSS(jumpGameBeforePoint, jumpGameContainer);
   isDisplay(introductionBeforePoint, introductionContainer);
