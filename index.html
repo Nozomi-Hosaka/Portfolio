@@ -53,10 +53,10 @@
           ballY = mouseY = height / 2;
 
           // マウス移動処理
-          document.body.addEventListener("mousemove", function(e){
-            canvas.style.left = Number(e.clientX - 20) + 'px';
-            canvas.style.top = Number(e.clientY - 20) + 'px';
-          })
+          document.body.addEventListener("mousemove", function(e) {
+            canvas.style.left = Number(e.clientX - 20) + "px";
+            canvas.style.top = Number(e.clientY - 20) + "px";
+          });
           setInterval(drawBall, 10);
         }
 
@@ -317,6 +317,34 @@
                 <p>
                   追々、クロスプラットフォーム開発で簡単なアプリを公開する予定です。業務アプリ系の筆頭サービスです。
                 </p>
+                <br />
+                <p class="text-bg">[ 使用技術 ]</p>
+                <img src="./dist/laravel.svg" alt="laravel" class="square-auto-y-50" />
+                <img src="./dist/vuejs-logo.png" alt="vue" class="square-auto-y-50" />
+              </li>
+              <li class="list-box">
+                <h3 class="list-title">
+                  <a href="https://ambition.nozomi.bike/" target="_blank">今年の抱負メーカー</a
+                  ><span class="text-sm">
+                    [ <a href="https://ambition.nozomi.bike/" target="_blank">https://ambition.nozomi.bike/</a> ]
+                  </span>
+                  <div class="badge primary text-sm">開発進行中</div>
+                  <div class="badge danger text-sm">リリース済</div>
+                  <div class="text-sm inline">
+                    <img src="./dist/GitHub-Mark-120px-plus.png" alt="GitHub" class="img-icon" />
+                    <a href="https://github.com/Nozomi-Hosaka/Ambition" target="_blank"
+                      >https://github.com/Nozomi-Hosaka/Ambition</a
+                    >
+                  </div>
+                </h3>
+                <a href="https://ambition.nozomi.bike/" target="_blank">
+                  <img src="./dist/ambition.png" alt="ambition" class="square-auto-y-100" />
+                </a>
+                <p class="text-bg"><strong>Twitterでシェアできる今年の抱負メーカーです。</strong></p>
+                <p>外部SNS利用の勉強のために作成したアプリです。</p>
+                <p>個人開発の中では一番開発期間が短く、<span class="text-bg text-danger"><strong>３日ほど</strong></span>で、作成しました。</p>
+                <p>予定では、抱負を通知でリマインドしたり、抱負に対して「いいね」する機能を作成予定です。</p>
+                <p>画像に文字挿入を行う処理がキモです。</p>
                 <br />
                 <p class="text-bg">[ 使用技術 ]</p>
                 <img src="./dist/laravel.svg" alt="laravel" class="square-auto-y-50" />
